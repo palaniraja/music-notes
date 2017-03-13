@@ -7,4 +7,3 @@ import {
 import App from './app'
 
 
-AppRegistry.registerComponent('mnotes', () => App);

@@ -5,25 +5,43 @@ import {
   AppRegistry,
   StyleSheet,
   Text,
-  View
+  View,
+  ListView
 } from 'react-native';
 
+import {
+  StackNavigator,
+} from 'react-navigation';
 
 
 
-export default class App extends Component {
+import MenuScreen from './src/menu'
+import NoteScreen from './src/note'
+
+export default class HomeScreen extends Component {
+
+  static navigationOptions = {
+    title: "♬♪♫🎶🎵🎼",
+  };
   
+
+/*
+  <MenuScreen />
+
+*/
+
   render() {
     return (
-      <View>
-      <Text></Text>
-      <Text>
-      Let us learn to read Music notes
-      </Text>
-      </View>
+      <NoteScreen />
     );
   }
 }
 
 
 
+const App = StackNavigator({
+  Home: { screen: HomeScreen },
+  Note: { screen: NoteScreen },
+});
+
+AppRegistry.registerComponent('mnotes', () => App);
