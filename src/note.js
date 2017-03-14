@@ -7,7 +7,8 @@ import {
   Text,
   View,
   ListView,
-  TouchableHighlight
+  TouchableHighlight,
+  Button
 } from 'react-native';
 
 
@@ -22,7 +23,7 @@ export default class Note extends Component {
     this.state = {
       notes: ds,
       length: ds.length,
-      bpm: 120,
+      bpm: 60,
       ts: '4/4',
       currentNote: ''
     };
@@ -34,17 +35,53 @@ export default class Note extends Component {
     this.updateNote();
   }
 
+  randomIndex(){
+    return Math.floor(Math.random() * this.state.length);
+  }
+
+  randomNote(){
+    return this.state.notes[this.randomIndex()];
+  }
 
 updateNote(){
-    let idx = Math.floor(Math.random() * this.state.length);
+    
+
+    var oldNote = this.state.currentNote;
+    var newNote = this.randomNote();
+
+    if(oldNote == newNote){
+      newNote = this.randomNote();
+    }
+
+
     this.setState({
-      currentNote: this.state.notes[idx]
+      currentNote: newNote
     });
 
-    
-    setTimeout(() => {this.updateNote()}, (60*1000/this.state.bpm));
+    var delay = (60*1000/this.state.bpm);
+    console.log('delay: ', delay);
+    setTimeout(() => {this.updateNote()}, delay);
 
 }
+
+
+decreaseBPM(){
+  console.log(this.state.bpm);
+  let newbpm = this.state.bpm-10;
+  this.setState({
+      bpm: newbpm
+    });
+}
+
+increaseBPM(){
+  console.log(this.state.bpm);
+  let newbpm = this.state.bpm+10;
+  this.setState({
+      bpm: newbpm
+    });
+}
+
+
 
 
 _pressRow(rowId){
@@ -56,7 +93,15 @@ _pressRow(rowId){
     return (
       <View style = {styles.container}>
         <View style = {styles.container}><Text style={styles.note}>{this.state.currentNote}</Text></View>
-        <View style={styles.statusbar}><Text style={styles.info}>4/4</Text><Text style={styles.info}>120 BPM</Text></View>
+        <View style={styles.statusbar}>
+              <Text style={styles.info}>4/4</Text>
+              <View style={styles.spacer} />
+              <View style={styles.row}>
+                  <Button title="-" onPress={this.decreaseBPM.bind(this)} />
+                  <Text style={styles.info}>{this.state.bpm} BPM</Text>
+                  <Button title="+" onPress={this.increaseBPM.bind(this)} />
+              </View>
+              </View>
       </View>
     );
   }
@@ -72,6 +117,14 @@ const styles = StyleSheet.create({
 
     },
 
+    spacer:{
+      flex: 1
+    },
+
+    row:{
+      flexDirection: 'row',
+    },
+
     note:{
       padding: 20,
       fontSize: 80,
@@ -84,8 +137,7 @@ const styles = StyleSheet.create({
     info:{
       padding: 4,
       margin: 4,
-      backgroundColor: 'lightblue',
-      justifyContent: 'space-around',
+      
     }
 
 });
