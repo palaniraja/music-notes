@@ -12,8 +12,8 @@ import {
 
 
 
-var appVer = "2017.03.14#3";
-var buildVer = "faccb";
+var appVer = "2017.03.14#5";
+var buildVer = "594dee3";
 
 // ♬♪♫🎶🎵🎼
 

@@ -32,36 +32,36 @@ import NoteScreen from './src/note'
 
 
 
-export default class HomeScreen extends Component {
+// export default class HomeScreen extends Component {
 
-  static navigationOptions = {
-    title: "♬♪♫🎶🎵🎼",
-  };
+//   static navigationOptions = {
+//     title: "♬♪♫🎶🎵🎼",
+//   };
   
 
- componentDidMount() {
+//  componentDidMount() {
 
-  // codePush.sync({installMode: 0});
+//   // codePush.sync({installMode: 0});
 
-   var updateDialogOptions = {
-        updateTitle: "Update",
-        optionalUpdateMessage: "New version of the app is available. Install?",
-        optionalIgnoreButtonLabel: "Later",
-        optionalInstallButtonLabel: "Yes",
-    };
+//    var updateDialogOptions = {
+//         updateTitle: "Update",
+//         optionalUpdateMessage: "New version of the app is available. Install?",
+//         optionalIgnoreButtonLabel: "Later",
+//         optionalInstallButtonLabel: "Yes",
+//     };
 
-    codePush.sync({ updateDialog: updateDialogOptions});
- }
+//     codePush.sync({ updateDialog: updateDialogOptions});
+//  }
 
-  render() {
-    return (
-      <View>
-        <Text></Text>
-        <Text> Release 18 - Test in 4.4</Text>
-      </View>
-    );
-  }
-}
+//   render() {
+//     return (
+//       <View>
+//         <Text></Text>
+//         <Text> Release 18 - Test in 4.4</Text>
+//       </View>
+//     );
+//   }
+// }
 
 
 const App = StackNavigator({
@@ -69,5 +69,5 @@ const App = StackNavigator({
   Note: { screen: NoteScreen },
 });
 
-// AppRegistry.registerComponent('mnotes', () => codePush(codePushOptions)(App));
-AppRegistry.registerComponent('mnotes', () => HomeScreen);
+AppRegistry.registerComponent('mnotes', () => codePush(App));
+// AppRegistry.registerComponent('mnotes', () => HomeScreen);
