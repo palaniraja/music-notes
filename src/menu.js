@@ -12,8 +12,8 @@ import {
 
 
 
-var appVer = "0.1";
-var buildVer = "0.1";
+var appVer = "2017.03.14#1";
+var buildVer = "96d627";
 
 // ♬♪♫🎶🎵🎼
 
