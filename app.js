@@ -18,29 +18,9 @@ import {
 import MenuScreen from './src/menu'
 import NoteScreen from './src/note'
 
-export default class HomeScreen extends Component {
-
-  static navigationOptions = {
-    title: "♬♪♫🎶🎵🎼",
-  };
-  
-
-/*
-  <MenuScreen />
-
-*/
-
-  render() {
-    return (
-      <NoteScreen />
-    );
-  }
-}
-
-
 
 const App = StackNavigator({
-  Home: { screen: HomeScreen },
+  Menu: { screen: MenuScreen },
   Note: { screen: NoteScreen },
 });
 

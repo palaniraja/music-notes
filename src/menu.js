@@ -12,16 +12,30 @@ import {
 
 
 
+var appVer = "0.1";
+var buildVer = "0.1";
+
+// ♬♪♫🎶🎵🎼
 
 export default class Menu extends Component {
 
+static navigationOptions = {
+    title: "♬♪",
+  };
 
   constructor(props) {
     super(props);
     const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
     this.state = {
       dataSource: ds.cloneWithRows([
-        'Note to play', 'Flash cards'
+        {
+          title: 'Note to play',
+          rowId: 0
+        },
+        {
+          title: 'Flash cards',
+          rowId: 1
+        } 
       ])
     };
   }
@@ -29,27 +43,35 @@ export default class Menu extends Component {
 
 _pressRow(rowId){
   console.log('rowId: ', rowId);
+
+  const { navigate } = this.props.navigation;
+
+  if(rowId == 0){
+      navigate('Note', { data: 'additional data' });
+  }
+  else if(rowId == 1){
+
+  }
 }
   
   
   render() {
+
     return (
+
       <View style = {styles.container}>
       <ListView
           style = {styles.menuList}
           dataSource={this.state.dataSource}
           renderRow={(rowData) => {
             return (
-
-
-                    <TouchableHighlight onPress={() => {
-                this._pressRow('rowID');
-                // highlightRow(sectionID, rowID);
-              }}>
+              <TouchableHighlight onPress={() => {
+                    this._pressRow(rowData.rowId);
+                  }}>
               <View>
                 <View style={styles.row}>
                   <Text style={styles.text}>
-                    {rowData}
+                    {rowData.title}
                   </Text>
                 </View>
               </View>
@@ -59,6 +81,7 @@ _pressRow(rowId){
           }
         }
         />
+        <Text style={styles.version}>{appVer} ({buildVer})</Text>
       </View>
     );
   }
@@ -95,6 +118,12 @@ const styles = StyleSheet.create({
     text: {
       flex: 1,
     },
+
+    version:{
+      fontSize: 10,
+      color: 'gray',
+      padding:6,
+    }
 
 });
 

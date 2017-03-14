@@ -17,6 +17,11 @@ import {
 export default class Note extends Component {
 
 
+  static navigationOptions = {
+    title: "Play",
+  };
+
+
   constructor(props) {
     super(props);
     const ds = ['C', 'D', 'E', 'F', 'G', 'A', 'B'];
@@ -25,14 +30,23 @@ export default class Note extends Component {
       length: ds.length,
       bpm: 60,
       ts: '4/4',
-      currentNote: ''
+      currentNote: '',
+      timer: ''
     };
   }
+
+
 
   
 
   componentDidMount() {
     this.updateNote();
+  }
+
+
+  componentWillUnmount(){
+    console.log('timeout clear');
+    clearTimeout(this.state.timer);
   }
 
   randomIndex(){
@@ -60,7 +74,10 @@ updateNote(){
 
     var delay = (60*1000/this.state.bpm);
     console.log('delay: ', delay);
-    setTimeout(() => {this.updateNote()}, delay);
+    let s = setTimeout(() => {this.updateNote()}, delay);
+    this.setState({
+      timer: s
+    });
 
 }
 
