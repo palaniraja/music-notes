@@ -32,7 +32,8 @@ public class MainApplication extends Application implements ReactApplication {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
             new KCKeepAwakePackage(),
-            new CodePush(null, getApplicationContext(), BuildConfig.DEBUG)
+            new CodePush("XUoVppAVe8unhvLjfMGVZ7AhUUYGNJFayy4FG", getApplicationContext(), BuildConfig.DEBUG)
+            // new CodePush(null, getApplicationContext(), BuildConfig.DEBUG)
       );
     }
   };
