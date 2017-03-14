@@ -57,29 +57,29 @@ export default class Note extends Component {
     return this.state.notes[this.randomIndex()];
   }
 
-updateNote(){
-    
+  updateNote(){
+      
 
-    var oldNote = this.state.currentNote;
-    var newNote = this.randomNote();
+      var oldNote = this.state.currentNote;
+      var newNote = this.randomNote();
 
-    if(oldNote == newNote){
-      newNote = this.randomNote();
-    }
+      if(oldNote == newNote){
+        newNote = this.randomNote();  //assuming this time it wont return the same :-)
+      }
 
 
-    this.setState({
-      currentNote: newNote
-    });
+      this.setState({
+        currentNote: newNote
+      });
 
-    var delay = (60*1000/this.state.bpm);
-    console.log('delay: ', delay);
-    let s = setTimeout(() => {this.updateNote()}, delay);
-    this.setState({
-      timer: s
-    });
+      var delay = (60*1000/this.state.bpm);
+      console.log('delay: ', delay);
+      let s = setTimeout(() => {this.updateNote()}, delay);
+      this.setState({
+        timer: s
+      });
 
-}
+  }
 
 
 decreaseBPM(){
@@ -98,13 +98,6 @@ increaseBPM(){
     });
 }
 
-
-
-
-_pressRow(rowId){
-  console.log('rowId: ', rowId);
-}
-  
   
   render() {
     return (

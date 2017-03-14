@@ -12,8 +12,8 @@ import {
 
 
 
-var appVer = "2017.03.14#5";
-var buildVer = "594dee3";
+var appVer = "v0.1";
+var buildVer = "2017.03.14#6";
 
 // ♬♪♫🎶🎵🎼
 
@@ -47,10 +47,10 @@ _pressRow(rowId){
   const { navigate } = this.props.navigation;
 
   if(rowId == 0){
-      navigate('Note', { data: 'additional data' });
+      navigate('Note', { data: '' });
   }
   else if(rowId == 1){
-
+    navigate('Flashcard', { data: '' });
   }
 }
   

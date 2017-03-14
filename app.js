@@ -17,57 +17,16 @@ import codePush from "react-native-code-push";
 
 
 
-import MenuScreen from './src/menu'
-import NoteScreen from './src/note'
+import MenuScreen from './src/menu';
+import NoteScreen from './src/note';
+import FlashCardScreen from './src/flashcard';
 
-
-// let codePushOptions = { checkFrequency: codePush.CheckFrequency.ON_APP_RESUME };
-
-
-
-
-
-
-
-
-
-
-// export default class HomeScreen extends Component {
-
-//   static navigationOptions = {
-//     title: "♬♪♫🎶🎵🎼",
-//   };
-  
-
-//  componentDidMount() {
-
-//   // codePush.sync({installMode: 0});
-
-//    var updateDialogOptions = {
-//         updateTitle: "Update",
-//         optionalUpdateMessage: "New version of the app is available. Install?",
-//         optionalIgnoreButtonLabel: "Later",
-//         optionalInstallButtonLabel: "Yes",
-//     };
-
-//     codePush.sync({ updateDialog: updateDialogOptions});
-//  }
-
-//   render() {
-//     return (
-//       <View>
-//         <Text></Text>
-//         <Text> Release 18 - Test in 4.4</Text>
-//       </View>
-//     );
-//   }
-// }
 
 
 const App = StackNavigator({
   Menu: { screen: MenuScreen },
   Note: { screen: NoteScreen },
+  Flashcard: { screen: FlashCardScreen },
 });
 
 AppRegistry.registerComponent('mnotes', () => codePush(App));
-// AppRegistry.registerComponent('mnotes', () => HomeScreen);
