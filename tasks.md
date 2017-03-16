@@ -29,4 +29,8 @@ Simple companion app to help me in learing/sticking to my piano training. a.k.a 
 
 * [Generate note image](https://jsfiddle.net/palaniraja/hLdr3gos/1/)
 * [svg editor](http://editor.method.ac/) 80x130 seems to be okay for the image with 2.5x scale
-* Random sheet music generators (http://www.randomsheetmusic.com/, http://www.link.cs.cmu.edu/melody-generator/)
+* Random sheet music generators
+    * http://www.randomsheetmusic.com/
+    * http://www.link.cs.cmu.edu/melody-generator/
+* [Tinder card](https://github.com/meteor-factory/react-native-tinder-swipe-cards)
+    
