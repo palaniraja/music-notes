@@ -8,6 +8,8 @@ Simple companion app to help me in learing/sticking to my piano training. a.k.a 
 * Flashcard
     * Level based learning
     * i.e, Line notes, space notes
+    * Tinder card animation #later
+    * Timed with leader board (Best of 5) #later
 * Timed notes
     * Random note to play
         * To help me with rythym
@@ -15,6 +17,12 @@ Simple companion app to help me in learing/sticking to my piano training. a.k.a 
     * Level based random music generate
     * Similar to flash card
 
+* Configuration
+    * BPM
+    * Time signature/Metronome animations? #later
+    * Choose level
+        * G/F staff, Around G, Line, space, Extended Line, Extended space
+* Nicer Images #later    
 
 
 ### Links
