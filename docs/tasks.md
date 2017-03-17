@@ -1,6 +1,6 @@
 # Idea
 
-Simple companion app to help me in learing/sticking to my piano training. a.k.a find a way to procrastinate 
+Simple companion app to help me in learing/sticking to my piano training. A.K.A find a way to procrastinate.
 
 
 ## MVP
@@ -15,10 +15,10 @@ Simple companion app to help me in learing/sticking to my piano training. a.k.a 
         - To help me with rythym
 - [ ] Random music generate
     - [ ] Level based random music generate
-    - [ ] Similar to flash card
+        - Similar to flash card
 
 - [ ] Configuration
-    - [ ] BPM
+    - [x] BPM
     - [ ] Time signature/Metronome animations? #later
     - [ ] Choose level
         - [ ] G/F staff, Around G, Line, space, Extended Line, Extended space
@@ -28,8 +28,9 @@ Simple companion app to help me in learing/sticking to my piano training. a.k.a 
 ### Links
 
 * [Generate note image](https://jsfiddle.net/palaniraja/hLdr3gos/4/)
-* [svg editor](http://editor.method.ac/) 80x130 seems to be okay for the image with 2.5x scale
+* [svg editor](http://editor.method.ac/)
+    * 80x130 seems to be okay for the image with 2.5x scale
 * Random sheet music generators
     * http://www.randomsheetmusic.com/
     * http://www.link.cs.cmu.edu/melody-generator/
-* [Tinder card](https://github.com/meteor-factory/react-native-tinder-swipe-cards)
+* [Tinder card - lib](https://github.com/meteor-factory/react-native-tinder-swipe-cards)

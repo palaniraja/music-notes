@@ -13,14 +13,14 @@ import {
 
 
 var appVer = "v0.1";
-var buildVer = "2017.03.17";
+var buildVer = "2017.03.17#3";
 
 // ♬♪♫🎶🎵🎼
 
 export default class Menu extends Component {
 
 static navigationOptions = {
-    title: "♬♪",
+    title: "Let's read Music ♪",
   };
 
   constructor(props) {
@@ -31,11 +31,15 @@ static navigationOptions = {
         {
           title: 'Note to play',
           rowId: 0
-        },
-        {
+        }
+        ,{
           title: 'Flash cards',
           rowId: 1
         } 
+        // ,{
+        //   title: 'Options',
+        //   rowId: 2
+        // } 
       ])
     };
   }
@@ -51,6 +55,9 @@ _pressRow(rowId){
   }
   else if(rowId == 1){
     navigate('Flashcard', { data: '' });
+  }
+  else if(rowId == 2){
+    navigate('Options', { data: '' });
   }
 }
   

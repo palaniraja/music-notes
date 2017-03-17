@@ -20,6 +20,7 @@ import codePush from "react-native-code-push";
 import MenuScreen from './src/menu';
 import NoteScreen from './src/note';
 import FlashCardScreen from './src/flashcard';
+import OptionsScreen from './src/options';
 
 
 
@@ -27,6 +28,7 @@ const App = StackNavigator({
   Menu: { screen: MenuScreen },
   Note: { screen: NoteScreen },
   Flashcard: { screen: FlashCardScreen },
+  Options: { screen: OptionsScreen },
 });
 
 AppRegistry.registerComponent('mnotes', () => codePush(App));

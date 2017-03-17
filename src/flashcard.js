@@ -12,6 +12,7 @@ import {
   Image,
   Picker,
   Slider,
+  Switch
 } from 'react-native';
 
 
@@ -21,7 +22,7 @@ export default class FlashCard extends Component {
 
 
   static navigationOptions = {
-    title: "FlashCard",
+    title: "Flashcards ♪",
   };
 
 
@@ -33,7 +34,8 @@ export default class FlashCard extends Component {
       timer: '',
       currentNote: cheatImg,
       cheat: 0,
-      level: 1
+      level: 1,
+      levelCombined: true
     };
   }
 
@@ -43,14 +45,9 @@ export default class FlashCard extends Component {
 
   componentDidMount() {
     this.changeLevel();
-    // this.nextCard();
   }
 
 
-  // componentWillUnmount(){
-  //   console.log('timeout clear');
-  //   clearTimeout(this.state.timer);
-  // }
 
   randomIndex(){
     let idx = Math.floor(Math.random() * (this.state.length-1));
@@ -76,13 +73,6 @@ export default class FlashCard extends Component {
         currentNote: newNote
       });
 
-      // var delay = (60*1000/this.state.bpm);
-      // console.log('delay: ', delay);
-      // let s = setTimeout(() => {this.updateNote()}, delay);
-      // this.setState({
-      //   timer: s
-      // });
-
   }
 
   cheat(){
@@ -101,45 +91,24 @@ export default class FlashCard extends Component {
   }
 
 
-  changeLevel(){
-    console.log('changeLevel');
-
-/*
-
-{ name: '', image: require('./assets/cheat.png')}
-
-{ name: 'c4', image: require('./assets/c4.png')}, 
-{ name: 'd4', image: require('./assets/d4.png')}, 
-{ name: 'e4', image: require('./assets/e4.png')}, 
-{ name: 'f4', image: require('./assets/f4.png')}, 
-{ name: 'g4', image: require('./assets/g4.png')}, 
-{ name: 'a4', image: require('./assets/a4.png')}, 
-
-{ name: 'b4', image: require('./assets/b4.png')},
-{ name: 'c5', image: require('./assets/c5.png')}, 
-{ name: 'd5', image: require('./assets/d5.png')}, 
-{ name: 'e5', image: require('./assets/e5.png')}, 
-{ name: 'f5', image: require('./assets/f5.png')}, 
-
-
-{ name: 'g5', image: require('./assets/g5.png')}, 
-{ name: 'a5', image: require('./assets/c6.png')}, 
-{ name: 'b5', image: require('./assets/b5.png')}
-{ name: 'c6', image: require('./assets/c6.png')}
-
-{ name: 'd4', image: require('./assets/d3.png')}, 
-{ name: 'b3', image: require('./assets/b3.png')},
-{ name: 'a3', image: require('./assets/a3.png')},
-{ name: 'g3', image: require('./assets/g3.png')},
-*/
+  changeLevel(newval){
+    console.log('changeLevel :', newval);
     var notes = [];
 
     notes.push(cheatImg);
 
-    let currentLevel = this.state.level;
+    var currentLevel = this.state.level;
+    let levelCombined = this.state.levelCombined;
+
+    if(newval){
+      currentLevel = newval;
+      this.setState({
+        level: currentLevel
+      });
+    }
 
 
-    if(currentLevel <=1){
+    if((currentLevel >=1 && levelCombined) || (currentLevel == 1 && !levelCombined)){
 
       notes.push({ name: 'c4', image: require('./assets/c4.png')}); 
       notes.push({ name: 'd4', image: require('./assets/d4.png')}); 
@@ -147,10 +116,9 @@ export default class FlashCard extends Component {
       notes.push({ name: 'f4', image: require('./assets/f4.png')}); 
       notes.push({ name: 'g4', image: require('./assets/g4.png')}); 
       notes.push({ name: 'a4', image: require('./assets/a4.png')});
-      // notes.concat([]);
     }
 
-    if( (currentLevel > 1) && (currentLevel <=2)){
+    if((currentLevel >=2 && levelCombined) || (currentLevel == 2 && !levelCombined)){
         notes.push({ name: 'b4', image: require('./assets/b4.png')});
         notes.push({ name: 'c5', image: require('./assets/c5.png')}); 
         notes.push({ name: 'd5', image: require('./assets/d5.png')}); 
@@ -158,14 +126,14 @@ export default class FlashCard extends Component {
         notes.push({ name: 'f5', image: require('./assets/f5.png')});    
       }
 
-    if((currentLevel > 2) && (currentLevel <=3)){
+    if((currentLevel >=3 && levelCombined) || (currentLevel == 3 && !levelCombined)){
         notes.push({ name: 'g5', image: require('./assets/g5.png')});
         notes.push({ name: 'a5', image: require('./assets/c6.png')});
         notes.push({ name: 'b5', image: require('./assets/b5.png')});
         notes.push({ name: 'c6', image: require('./assets/c6.png')});
     }
 
-    if((currentLevel > 2) && (currentLevel <=4)){
+    if((currentLevel >=4 && levelCombined) || (currentLevel == 4 && !levelCombined)){
         notes.push({ name: 'd4', image: require('./assets/d4.png')});
         notes.push({ name: 'b3', image: require('./assets/b3.png')});
         notes.push({ name: 'a3', image: require('./assets/a3.png')});
@@ -184,20 +152,7 @@ export default class FlashCard extends Component {
 
 
   }
-  
 
-  // <View>
-  //       <Picker>
-  //                 <Picker.Item label="Level 0" value="0" />
-  //                 <Picker.Item label="Level 1" value="1" />
-  //               </Picker>
-  //               </View>
-
-
-                  // selectedValue={this.state.level}
-                  // onValueChange={(lang) => {
-                  //   this.changeLevel.bind(this);
-                  // }}
 
   render() {
     return (
@@ -213,19 +168,19 @@ export default class FlashCard extends Component {
           </TouchableHighlight>
           <Text style={[styles.info, {'opacity': (this.state.cheat)?1:0}]}>{this.state.currentNote.name}</Text>
         </View>
-        <View style={styles.row}>
-        <Slider style={styles.slider}
-          minimumValue={1}
-          maximumValue={4}
-          step={1}
-          onValueChange={(value) => {
-            this.setState({level: value});
-            this.changeLevel.bind(this);
-          }
-        } />
-          <Text>Level {this.state.level} len: {this.state.length}</Text>
-        </View>
-        <View style={styles.statusbar}>
+        <View style={[styles.row, styles.levelSlider]}>
+          <Text>Level {this.state.level} ({this.state.length}♪)</Text>
+          <Slider style={styles.slider}
+            minimumValue={1}
+            maximumValue={4}
+            step={1}
+            onValueChange={this.changeLevel.bind(this)} />
+          </View>
+        <View style={[styles.row, styles.levelSlider]}>
+          <Text>Combine Levels: </Text>
+              <Switch
+                onValueChange={(value) => this.setState({levelCombined: value})}
+                value={this.state.levelCombined} />
               <View style={styles.spacer} />
               <View style={styles.row}>
                   <Button title="Cheat" onPress={this.cheat.bind(this)} />
@@ -252,9 +207,9 @@ const styles = StyleSheet.create({
     },
 
     slider: {
-      height: 10,
-      margin: 10,
-      width: 250,
+      marginLeft: 10,
+      marginRight: 10,
+      flex:1
     },
 
     info:{
@@ -267,11 +222,14 @@ const styles = StyleSheet.create({
 
     row:{
       flexDirection: 'row',
+      alignItems: 'center',
+      justifyContent: 'center',
     },
 
-    statusbar:{
-      flexDirection: 'row',
-    },
+
+    levelSlider:{
+      padding: 5,
+    }
     
 
 });

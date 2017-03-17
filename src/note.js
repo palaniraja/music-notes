@@ -18,7 +18,7 @@ export default class Note extends Component {
 
 
   static navigationOptions = {
-    title: "Play",
+    title: "Play Note ♪",
   };
 
 
@@ -107,9 +107,9 @@ increaseBPM(){
               <Text style={styles.info}>4/4</Text>
               <View style={styles.spacer} />
               <View style={styles.row}>
-                  <Button title="-" onPress={this.decreaseBPM.bind(this)} />
+                  <Button title=" - " onPress={this.decreaseBPM.bind(this)} />
                   <Text style={styles.info}>{this.state.bpm} BPM</Text>
-                  <Button title="+" onPress={this.increaseBPM.bind(this)} />
+                  <Button title=" + " onPress={this.increaseBPM.bind(this)} />
               </View>
               </View>
       </View>
