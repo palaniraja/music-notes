@@ -20,8 +20,9 @@ Simple companion app to help me in learing/sticking to my piano training. A.K.A 
 - [ ] Configuration
     - [x] BPM
     - [ ] Time signature/Metronome animations? #later
-    - [ ] Choose level
-        - [ ] G/F staff, Around G, Line, space, Extended Line, Extended space
+    - [x] Choose level
+        - [x] G/F staff, Around G, Line, space, Extended Line, Extended space
+        - [ ] Improve UI
 - [x] Nicer Images #later    
 
 
