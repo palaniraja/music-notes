@@ -203,7 +203,10 @@ export default class FlashCard extends Component {
     return (
       <View style = {styles.container}>
         <View style = {styles.container}>
-        <TouchableHighlight onPress={() => {
+        <TouchableHighlight 
+                  underlayColor = "transparent"
+                  activeOpacity = {0.7}
+                  onPress={() => {
                     this.nextCard();
                   }}>
           <Image style={styles.cardImage} source={this.state.currentNote.image} />
@@ -244,8 +247,8 @@ const styles = StyleSheet.create({
     },
 
     cardImage:{
-      width: 220,
-      height: 298,
+      width: 240,
+      height: 390,
     },
 
     slider: {
