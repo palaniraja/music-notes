@@ -13,7 +13,7 @@ import {
   StackNavigator,
 } from 'react-navigation';
 
-import codePush from "react-native-code-push";
+
 
 
 
@@ -31,4 +31,4 @@ const App = StackNavigator({
   Options: { screen: OptionsScreen },
 });
 
-AppRegistry.registerComponent('mnotes', () => codePush(App));
+AppRegistry.registerComponent('mnotes', () => App);

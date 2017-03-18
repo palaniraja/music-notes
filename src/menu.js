@@ -11,6 +11,8 @@ import {
 } from 'react-native';
 
 
+import codePush from "react-native-code-push";
+
 
 var appVer = "v0.2";
 var buildVer = "2017.03.18";
@@ -44,6 +46,17 @@ static navigationOptions = {
     };
   }
 
+
+ componentDidMount(){
+    var updateDialogOptions = {
+          updateTitle: "Update",
+          optionalUpdateMessage: "New version of the app is available. Install?",
+          optionalIgnoreButtonLabel: "Later",
+          optionalInstallButtonLabel: "Yes",
+        };
+
+          codePush.sync({ updateDialog: updateDialogOptions});
+      }
 
 _pressRow(rowId){
   console.log('rowId: ', rowId);
