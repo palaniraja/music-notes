@@ -8,6 +8,11 @@ Mobile version of https://github.com/palaniraja/letsreadnotes
 
 ---
 
+## Demo
+
+[![YouTube demo](https://img.youtube.com/vi/G6lHkm73moo/0.jpg)](https://www.youtube.com/watch?v=G6lHkm73moo)
+
+
 ## Screenshots
 
 ![App](docs/screenshots/app-home.png)
