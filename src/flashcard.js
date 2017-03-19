@@ -22,15 +22,6 @@ export default class FlashCard extends Component {
 
   static navigationOptions = {
       title: "Flashcards ♪",
-      header: {
-              style: {
-                  backgroundColor: '#0294cb', 
-              },
-              tintColor: 'white',
-              titleStyle:{
-                  color: 'white',
-              }
-      }
     };
 
 

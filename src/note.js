@@ -18,15 +18,6 @@ export default class Note extends Component {
 
   static navigationOptions = {
       title: "Play Note ♪",
-      header: {
-              style: {
-                  backgroundColor: '#0294cb', 
-              },
-              titleStyle:{
-                  color: 'white',
-              },
-              tintColor: 'white',
-      }
     };
 
   constructor(props) {

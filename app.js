@@ -23,7 +23,7 @@ import FlashCardScreen from './src/flashcard';
 import OptionsScreen from './src/options';
 
 
-var navigationOptions = {
+var navOptions = {
     header: {
             style: {
                 backgroundColor: '#0294cb', 
@@ -41,6 +41,6 @@ const App = StackNavigator({
   Note: { screen: NoteScreen },
   Flashcard: { screen: FlashCardScreen },
   Options: { screen: OptionsScreen },
-}, navigationOptions);
+}, {navigationOptions: navOptions});
 
 AppRegistry.registerComponent('mnotes', () => App);
