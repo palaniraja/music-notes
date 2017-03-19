@@ -23,6 +23,18 @@ import FlashCardScreen from './src/flashcard';
 import OptionsScreen from './src/options';
 
 
+var navigationOptions = {
+    title: "Let's read Music ♪",
+    header: {
+            style: {
+                backgroundColor: '#0294cb', 
+            },
+            titleStyle:{
+                color: 'white',
+            }
+    }
+  };
+
 
 const App = StackNavigator({
   Menu: { screen: MenuScreen },

@@ -23,6 +23,14 @@ export default class Menu extends Component {
 
 static navigationOptions = {
     title: "Let's read Music ♪",
+    header: {
+            style: {
+                backgroundColor: '#0294cb', 
+            },
+            titleStyle:{
+                color: 'white',
+            }
+    }
   };
 
   constructor(props) {
@@ -88,12 +96,15 @@ _pressRow(rowId){
               <TouchableHighlight onPress={() => {
                     this._pressRow(rowData.rowId);
                   }}>
-              <View>
-                <View style={styles.row}>
+              <View style={styles.item}>
+                
                   <Text style={styles.text}>
                     {rowData.title}
                   </Text>
-                </View>
+                  <Text style={styles.text}>
+                    {rowData.title}
+                  </Text>
+                
               </View>
             </TouchableHighlight>
 
@@ -101,7 +112,9 @@ _pressRow(rowId){
           }
         }
         />
-        <Text style={styles.version}>{appVer} ({buildVer})</Text>
+        <View style={styles.footer}>
+          <Text style={styles.version}>{appVer} ({buildVer})</Text>
+        </View>
       </View>
     );
   }
@@ -111,14 +124,12 @@ _pressRow(rowId){
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        flexDirection: 'column',
-        justifyContent: 'center',
-        alignItems: 'center',
-
     },
 
     menuList:{
       padding: 20,
+      backgroundColor: 'red',
+      flex:1,
     },
     
      row: {
@@ -136,14 +147,40 @@ const styles = StyleSheet.create({
     },
 
     text: {
-      flex: 1,
+      // flex: 1,
     },
+
+    title: {
+      fontSize: 16,
+      fontWeight: 'bold',
+      color: '#444',
+    },
+    
+    description: {
+      fontSize: 13,
+      color: '#999',
+    },
+
 
     version:{
       fontSize: 10,
       color: 'gray',
       padding:6,
-    }
+    },
+
+
+    item: {
+    backgroundColor: '#fff',
+    paddingHorizontal: 16,
+    paddingVertical: 12,
+    borderBottomWidth: StyleSheet.hairlineWidth,
+    borderBottomColor: '#ddd',
+  },
+
+  footer:{
+    // backgroundColor: 'green',
+    alignItems: 'center',
+  }
 
 });
 

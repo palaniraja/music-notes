@@ -35,7 +35,7 @@ export default class FlashCard extends Component {
       currentNote: cheatImg,
       cheat: 0,
       level: 1,
-      levelCombined: true
+      levelCombined: false
     };
   }
 
