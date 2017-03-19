@@ -15,11 +15,7 @@ Mobile version of https://github.com/palaniraja/letsreadnotes
 
 ## Screenshots
 
-![App](docs/screenshots/app-home.png)
-
-![App](docs/screenshots/app-play-a-note.png)
-
-![App](docs/screenshots/app-flashcard.png)
+![App](docs/screenshots/app-home.png) ![App](docs/screenshots/app-play-a-note.png) ![App](docs/screenshots/app-flashcard.png)
 
 ![App](docs/screenshots/app-flashcard-cheat.png)
 
