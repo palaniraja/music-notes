@@ -15,7 +15,7 @@ import codePush from "react-native-code-push";
 
 
 var appVer = "v0.2";
-var buildVer = "2017.03.18";
+var buildVer = "2017.03.19";
 
 // ♬♪♫🎶🎵🎼
 
@@ -39,12 +39,14 @@ static navigationOptions = {
     this.state = {
       dataSource: ds.cloneWithRows([
         {
+          rowId: 0,
           title: 'Note to play',
-          rowId: 0
+          desc: 'Random note to play for finger practise',
         }
         ,{
+          rowId: 1,
           title: 'Flash cards',
-          rowId: 1
+          desc: 'Level based flash card',
         } 
         // ,{
         //   title: 'Options',
@@ -98,11 +100,11 @@ _pressRow(rowId){
                   }}>
               <View style={styles.item}>
                 
-                  <Text style={styles.text}>
+                  <Text style={styles.title}>
                     {rowData.title}
                   </Text>
-                  <Text style={styles.text}>
-                    {rowData.title}
+                  <Text style={styles.description}>
+                    {rowData.desc}
                   </Text>
                 
               </View>
@@ -127,8 +129,8 @@ const styles = StyleSheet.create({
     },
 
     menuList:{
-      padding: 20,
-      backgroundColor: 'red',
+      padding: 5,
+      backgroundColor: 'white',
       flex:1,
     },
     
@@ -155,7 +157,7 @@ const styles = StyleSheet.create({
       fontWeight: 'bold',
       color: '#444',
     },
-    
+
     description: {
       fontSize: 13,
       color: '#999',
@@ -178,7 +180,7 @@ const styles = StyleSheet.create({
   },
 
   footer:{
-    // backgroundColor: 'green',
+    backgroundColor: 'white',
     alignItems: 'center',
   }
 

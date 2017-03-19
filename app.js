@@ -24,14 +24,14 @@ import OptionsScreen from './src/options';
 
 
 var navigationOptions = {
-    title: "Let's read Music ♪",
     header: {
             style: {
                 backgroundColor: '#0294cb', 
             },
             titleStyle:{
                 color: 'white',
-            }
+            },
+            tintColor: 'white',
     }
   };
 
@@ -41,6 +41,6 @@ const App = StackNavigator({
   Note: { screen: NoteScreen },
   Flashcard: { screen: FlashCardScreen },
   Options: { screen: OptionsScreen },
-});
+}, navigationOptions);
 
 AppRegistry.registerComponent('mnotes', () => App);

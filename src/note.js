@@ -16,11 +16,18 @@ import {
 
 export default class Note extends Component {
 
-
   static navigationOptions = {
-    title: "Play Note ♪",
-  };
-
+      title: "Play Note ♪",
+      header: {
+              style: {
+                  backgroundColor: '#0294cb', 
+              },
+              titleStyle:{
+                  color: 'white',
+              },
+              tintColor: 'white',
+      }
+    };
 
   constructor(props) {
     super(props);
@@ -124,6 +131,7 @@ const styles = StyleSheet.create({
         flexDirection: 'column',
         justifyContent: 'center',
         alignItems: 'center',
+        backgroundColor: 'white',
 
     },
 
@@ -142,6 +150,7 @@ const styles = StyleSheet.create({
 
     statusbar:{
       flexDirection: 'row',
+      padding: 10,
     },
     
     info:{

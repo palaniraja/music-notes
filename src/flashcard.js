@@ -20,10 +20,18 @@ const cheatImg = {name: "", image: require('./assets/cheat.png')};
 
 export default class FlashCard extends Component {
 
-
   static navigationOptions = {
-    title: "Flashcards ♪",
-  };
+      title: "Flashcards ♪",
+      header: {
+              style: {
+                  backgroundColor: '#0294cb', 
+              },
+              tintColor: 'white',
+              titleStyle:{
+                  color: 'white',
+              }
+      }
+    };
 
 
   constructor(props) {
@@ -158,7 +166,8 @@ export default class FlashCard extends Component {
     return (
       <View style = {styles.container}>
         <View style = {styles.container}>
-        <TouchableHighlight 
+          <View style={[ {'alignItems': 'center'}]}>
+            <TouchableHighlight 
                   underlayColor = "transparent"
                   activeOpacity = {0.7}
                   onPress={() => {
@@ -166,9 +175,11 @@ export default class FlashCard extends Component {
                   }}>
           <Image style={styles.cardImage} source={this.state.currentNote.image} />
           </TouchableHighlight>
+          </View>
           <Text style={[styles.info, {'opacity': (this.state.cheat)?1:0}]}>{this.state.currentNote.name}</Text>
         </View>
-        <View style={[styles.row, styles.levelSlider]}>
+        <View style={styles.statusbar}>
+          <View style={[styles.row, styles.levelSlider]}>
           <Text>Level {this.state.level} ({this.state.length}♪)</Text>
           <Slider style={styles.slider}
             minimumValue={1}
@@ -185,7 +196,8 @@ export default class FlashCard extends Component {
               <View style={styles.row}>
                   <Button title="Cheat" onPress={this.cheat.bind(this)} />
               </View>
-              </View>
+         </View>
+        </View>
       </View>
     );
   }
@@ -195,15 +207,14 @@ export default class FlashCard extends Component {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        flexDirection: 'column',
-        justifyContent: 'center',
-        alignItems: 'center',
-
+        backgroundColor: 'white',
     },
 
     cardImage:{
       width: 240,
       height: 390,
+      justifyContent: 'center',
+      alignItems: 'center',
     },
 
     slider: {
@@ -229,6 +240,11 @@ const styles = StyleSheet.create({
 
     levelSlider:{
       padding: 5,
+    },
+
+    statusbar:{
+      // backgroundColor: 'red',
+      padding: 10,
     }
     
 
