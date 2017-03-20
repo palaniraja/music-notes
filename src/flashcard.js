@@ -166,8 +166,9 @@ export default class FlashCard extends Component {
                   }}>
           <Image style={styles.cardImage} source={this.state.currentNote.image} />
           </TouchableHighlight>
+          <Text style={[styles.info, {'opacity': (this.state.cheat)?1:0}]}>{this.state.currentNote.name.toLocaleUpperCase()}</Text>
           </View>
-          <Text style={[styles.info, {'opacity': (this.state.cheat)?1:0}]}>{this.state.currentNote.name}</Text>
+          
         </View>
         <View style={styles.statusbar}>
           <View style={[styles.row, styles.levelSlider]}>
@@ -215,7 +216,9 @@ const styles = StyleSheet.create({
     },
 
     info:{
-      fontSize: 14,
+      fontSize: 18,
+      color: "#777",
+      fontWeight: 'bold',
     },
 
     spacer:{
