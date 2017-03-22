@@ -35,3 +35,4 @@ Simple companion app to help me in learing/sticking to my piano training. A.K.A 
     * http://www.randomsheetmusic.com/
     * http://www.link.cs.cmu.edu/melody-generator/
 * [Tinder card - lib](https://github.com/meteor-factory/react-native-tinder-swipe-cards)
+* [vexflow - tests](http://www.vexflow.com/tests/)

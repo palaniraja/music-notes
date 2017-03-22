@@ -216,9 +216,8 @@ const styles = StyleSheet.create({
     },
 
     info:{
-      fontSize: 18,
+      fontSize: 15,
       color: "#777",
-      fontWeight: 'bold',
     },
 
     spacer:{

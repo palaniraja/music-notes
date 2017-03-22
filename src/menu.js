@@ -15,7 +15,7 @@ import codePush from "react-native-code-push";
 
 
 var appVer = "v0.2";
-var buildVer = "2017.03.20(36)";
+var buildVer = "2017.03.20#37";
 
 // ♬♪♫🎶🎵🎼
 
